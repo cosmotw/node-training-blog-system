@@ -1,6 +1,6 @@
 {
   "name": "blog-system",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -12,5 +12,9 @@
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
     "pug": "2.0.0-beta11"
-  }
+  },
+  "main": "app.js",
+  "repository": "git@github.com:cosmotw/node-training-blog-system.git",
+  "author": "Cosmo <shooliss@gmail.com>",
+  "license": "MIT"
 }
