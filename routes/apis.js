@@ -8,7 +8,24 @@ router.delete('/delete/:id', function(req, res, next) {
 
 /* POST user login. */
 router.post('/login', function(req, res, next) {
-  res.send('User login.');
+  const email = req.body.email;
+  const password = req.body.password;
+  if (!email || !password) {
+    res.redirect('/users/signin');
+    return;
+  }
+  req.session.email = email;
+  req.session.password = password;
+  req.session.logined = true;
+  res.redirect('/');
+});
+
+/* POST user logout. */
+router.post('/logout', function(req, res, next) {
+  delete req.session.email;
+  delete req.session.password;
+  delete req.session.logined;
+  res.redirect('/users/signin');
 });
 
 /* POST add article. */

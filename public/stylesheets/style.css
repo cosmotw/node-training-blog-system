@@ -6,3 +6,32 @@ body {
 a {
   color: #00B7FF;
 }
+
+fieldset {
+  border: 0;
+}
+
+fieldset > div {
+  margin-bottom: 10px;
+}
+
+#auth-block {
+  width: 250px;
+  margin: auto;
+}
+
+#auth-block input {
+  float: right;
+}
+
+#navigation {
+  float: right;
+}
+
+#navigation a {
+  margin: 10px;
+}
+
+#navigation form {
+  display: inline-block;
+}

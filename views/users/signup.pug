@@ -3,8 +3,8 @@ extends ../layout
 block content
   div(id="auth-block")
     div
-    h1 Sign In
-    form(name="login", action="/apis/login", method="post")
+    h1 Sign Up
+    form(name="signup", action="/apis/login", method="post")
       fieldset
         div
           label(for="email") E-mail
@@ -13,5 +13,4 @@ block content
           label(for="password") Password
           input(type="password", id="password", name="password", placeholder="Enter Password", required)
         div
-          a(href="/users/forget_password") Forget Password
-          input(type="submit", name="submit", value="Sing In")
+          input(type="submit", name="submit", value="Sing Up")

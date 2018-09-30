@@ -2,4 +2,5 @@ extends layout
 
 block content
   div(style="padding: 50px")
-  h1= title
+  h1= "Welcome "
+    span #{session.email}

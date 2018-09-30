@@ -3,12 +3,20 @@ var router = express.Router();
 
 /* GET users signup page. */
 router.get('/signup', function(req, res, next) {
-  res.send('Signup page.');
+  if (req.session.logined) {
+    res.redirect('/');
+    return;
+  }
+  res.render('users/signup');
 });
 
 /* GET users signin page. */
 router.get('/signin', function(req, res, next) {
-  res.send('Signin page.');
+  if (req.session.logined) {
+    res.redirect('/');
+    return;
+  }
+  res.render('users/signin');
 });
 
 /* GET users signout page. */

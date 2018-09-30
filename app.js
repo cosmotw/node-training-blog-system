@@ -28,6 +28,10 @@ app.use(cookieSession({
 }));
 
 // router
+app.use(function(req, res, next){
+  res.locals.session = req.session;
+  next();
+});
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/apis', apisRouter);

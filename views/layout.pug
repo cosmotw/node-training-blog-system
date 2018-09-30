@@ -4,5 +4,10 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    include includes/header.pug
+    if (session.logined)
+      div(id="navigation")
+        a(href="/users/add_article") Add Article
+        a(href="/users/profile") Profile
+        form(action="/apis/logout", method="post")
+          input(type="submit", value="Sign Out")
     block content
