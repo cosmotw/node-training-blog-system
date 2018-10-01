@@ -1,5 +1,9 @@
+require('../lib/db');
 var express = require('express');
 var router = express.Router();
+var mongoose = require('mongoose');
+var Blog = mongoose.model('Blog');
+var Comment = mongoose.model('Comment');
 
 /* DELETE article. */
 router.delete('/delete/:id', function(req, res, next) {
@@ -35,7 +39,23 @@ router.post('/forget_password', function(req, res, next) {
 
 /* POST add article. */
 router.post('/add', function(req, res, next) {
-  res.send('Add article.');
+  if (!req.session.logined) {
+    res.redirect('/');
+    return;
+  }
+  new Blog({
+    Email: req.session.email,
+    Article: req.body.content,
+    CreateDate: Date.now()
+  })
+    .save(err => {
+      if (err) {
+        console.log('Save failed.');
+        return;
+      }
+      console.log('Save successed.');
+    });
+  res.redirect('/');
 });
 
 /* PUT update article. */

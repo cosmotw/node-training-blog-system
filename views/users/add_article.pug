@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+  h1 Add Article
+  form(name="add_article", action="/apis/add", method="post")
+    div
+      textarea(name="content", cols="100", rows="25")
+    div
+      input(type="submit", value="Submit")

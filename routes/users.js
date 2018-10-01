@@ -40,7 +40,7 @@ router.get('/profile', function(req, res, next) {
 
 /* GET users add article page. */
 router.get('/add_article', function(req, res, next) {
-  res.send('Article page.');
+  res.render('users/add_article');
 });
 
 /* GET users article modify page. */
