@@ -28,6 +28,11 @@ router.post('/logout', function(req, res, next) {
   res.redirect('/users/signin');
 });
 
+/* POST forget password. */
+router.post('/forget_password', function(req, res, next) {
+  // TODO
+});
+
 /* POST add article. */
 router.post('/add', function(req, res, next) {
   res.send('Add article.');

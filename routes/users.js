@@ -26,7 +26,11 @@ router.get('/signout', function(req, res, next) {
 
 /* GET users forget password page. */
 router.get('/forget_password', function(req, res, next) {
-  res.send('Forget password page.');
+  if (req.session.logined) {
+    res.redirect('/');
+    return;
+  }
+  res.render('users/forget_password');
 });
 
 /* GET users profile page. */
