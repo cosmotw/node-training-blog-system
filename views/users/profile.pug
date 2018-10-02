@@ -2,12 +2,12 @@ extends ../layout
 
 block content
   div(style="padding: 50px")
-  h1= "Blog System"
+  h1= "Your Articles"
   for article in blogs
     div
       div(style="float: left;margin-top: 20px;")=article.Email
       div(style="float: left;margin: 20px 0 20px 20%;")=article.CreateDate
       div(style="clear: both;")=article.Article
-      a(href="/users/message/" + article.id, style="float: right;margin: 90px 10px 0;") Modify
-      a(href="/users/message/" + article.id, style="float: right;margin-top: 90px;") Delete
+      a(href="/users/modify_article/" + article.id, style="float: right;margin: 90px 10px 0;") Modify
+      a(href="/apis/delete/" + article.id, style="float: right;margin-top: 90px;") Delete
       hr(style="margin-top: 110px;")

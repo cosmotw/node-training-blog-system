@@ -7,7 +7,16 @@ var Comment = mongoose.model('Comment');
 
 /* DELETE article. */
 router.get('/delete/:id', function(req, res, next) {
-  res.send('Delete article.');
+  Blog.remove({ _id: req.params.id }, (err) => {
+    if (err) {
+      if (err) {
+        console.log('Delete failed.');
+        return;
+      }
+      console.log('Delete successed.');
+    }
+  });
+  res.redirect('/users/profile');
 });
 
 /* POST user login. */
