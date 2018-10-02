@@ -6,7 +6,7 @@ var Blog = mongoose.model('Blog');
 var Comment = mongoose.model('Comment');
 
 /* DELETE article. */
-router.delete('/delete/:id', function(req, res, next) {
+router.get('/delete/:id', function(req, res, next) {
   res.send('Delete article.');
 });
 
@@ -58,8 +58,8 @@ router.post('/add', function(req, res, next) {
   res.redirect('/');
 });
 
-/* PUT update article. */
-router.put('/update/:id', function(req, res, next) {
+/* POST update article. */
+router.post('/update/:id', function(req, res, next) {
   res.send('Update article.');
 });
 

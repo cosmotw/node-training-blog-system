@@ -1,5 +1,8 @@
+require('../lib/db');
 var express = require('express');
 var router = express.Router();
+var mongoose = require('mongoose');
+var Blog = mongoose.model('Blog');
 
 /* GET users signup page. */
 router.get('/signup', function(req, res, next) {
@@ -35,7 +38,9 @@ router.get('/forget_password', function(req, res, next) {
 
 /* GET users profile page. */
 router.get('/profile', function(req, res, next) {
-  res.send('Profile page.');
+  Blog.find({ Email: req.session.email }, (err, blogs, count) => {
+    res.render('users/profile', { blogs: blogs });
+  });
 });
 
 /* GET users add article page. */
@@ -48,9 +53,9 @@ router.get('/modify_article/:id', function(req, res, next) {
   res.send('Article modify page.');
 });
 
-/* GET users guest message page. */
-router.get('/guest_message/:id', function(req, res, next) {
-  res.send('Guest message page.');
+/* GET users message page. */
+router.get('/message/:id', function(req, res, next) {
+  res.send('Message page.');
 });
 
 module.exports = router;
