@@ -4,7 +4,7 @@ block content
   div(style="padding: 50px")
   h1= "Your Articles"
   for article in blogs
-    div
+    .article-block
       div(style="float: left;margin-top: 20px;")=article.Email
       div(style="float: left;margin: 20px 0 20px 20%;")=article.CreateDate
       div(style="clear: both;")=article.Article

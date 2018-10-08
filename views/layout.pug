@@ -5,7 +5,8 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     if (session.logined)
-      div(id="navigation")
+      #navigation
+        a(href="/") All Articles
         a(href="/users/add_article") Add Article
         a(href="/users/profile") Profile
         form(action="/apis/logout", method="post")
