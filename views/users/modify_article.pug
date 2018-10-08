@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+  h1 Modify Article
+  form(name="modify_article", action="/apis/update/" + blog._id, method="post")
+    #content
+      textarea(name="content", cols="100", rows="25")=blog.Article
+    #button-group
+      input(type="submit", value="Submit")

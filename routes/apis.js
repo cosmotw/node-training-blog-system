@@ -69,7 +69,23 @@ router.post('/add', function(req, res, next) {
 
 /* POST update article. */
 router.post('/update/:id', function(req, res, next) {
-  res.send('Update article.');
+  if (!req.session.logined) {
+    res.redirect('/');
+    return;
+  }
+  Blog.updateOne({
+    _id: req.params.id,
+  },
+  {
+    Article: req.body.content
+  }, err => {
+      if (err) {
+        console.log('Update failed.');
+        return;
+      }
+      console.log('Update successed.');
+    });
+  res.redirect('/');
 });
 
 /* POST add article comment. */

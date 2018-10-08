@@ -50,7 +50,9 @@ router.get('/add_article', function(req, res, next) {
 
 /* GET users article modify page. */
 router.get('/modify_article/:id', function(req, res, next) {
-  res.send('Article modify page.');
+  Blog.findOne({ _id: req.params.id }, (err, blog, count) => {
+    res.render('users/modify_article', { blog: blog});
+  });
 });
 
 /* GET users message page. */
